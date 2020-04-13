@@ -117,7 +117,7 @@ export default class User extends React.Component{
                 </div>
                 <Grid container>
                   <Grid>
-                    
+                    Other User Details
                   </Grid>
                 </Grid>
             </div>
