@@ -29,7 +29,8 @@ export default class City extends React.Component{
     expandCity=()=>{
         let array=[]
         city.map((cityS)=>
-            array.push(<div key={cityS.city} className="item" onClick={()=>this.props.setCity(cityS.city)}>
+            array.push(
+            <div key={cityS.city} className="item pointer" onClick={()=>this.props.setCity(cityS.city)}>
                 <img style={{width:'200px',height:'200px'}} src={cityS.url} alt="CarouselImage" />
                 <h4>{cityS.city}</h4>
             </div>)
