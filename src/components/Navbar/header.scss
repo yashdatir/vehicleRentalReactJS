@@ -20,6 +20,7 @@
     color: #f13e53 !important;
     display: inline-block;
     padding: 10px;
+    cursor: pointer;
 }
 .city-modal{
     z-index: 100;
@@ -37,10 +38,9 @@
     text-align: center;
 }
 .homepage-main{
-    background-image: url('../../road.jpeg');
+    background-image: url('../../main.jpg');
     width: 100%;
-    height: 600px;
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;   
 }
 .history{
@@ -50,4 +50,78 @@
     font-size:14px;
     margin-left:5px;
     margin-top:5px;
+}
+.pointer{
+    cursor: pointer;
+}
+.homeCarousel1{
+    width: 200px;
+    height: 275px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    background-size: 100% 100%;
+    background-image: url('../../images/m800.jpg');
+}
+.homeCarousel2{
+    width: 200px;
+    height: 275px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    background-size: 100% 100%;
+    background-image: url('../../images/xylo.jpeg');
+}
+.homeCarousel3{
+    width: 200px;
+    height: 275px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    background-size: 100% 100%;
+    background-image: url('../../images/bus.jpg');
+}
+.homeCarousel4{
+    width: 200px;
+    height: 275px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    background-size: 100% 100%;
+    background-image: url('../../images/bus2.jpg');
+}
+.homeCarousel5{
+    width: 200px;
+    height: 275px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    background-size: 100% 100%;
+    background-image: url('../../images/bike1.jpg');
+}
+.homeCarousel6{
+    width: 200px;
+    height: 275px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    background-size: 100% 100%;
+    background-image: url('../../images/bike2.jpeg');
+}
+.homeCarousel7{
+    width: 200px;
+    height: 275px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    background-size: 100% 100%;
+    background-image: url('../../images/bike3.jpg');
+}
+.textCar{
+    text-align:center;
+    position:absolute;
+    margin-top:90%;
+    font-weight:900;
+    color:#f13e53;
+    margin-left: 25%;
 }

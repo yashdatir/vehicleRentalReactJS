@@ -2,7 +2,18 @@ import React from 'react';
 import {ExpansionPanel,ExpansionPanelDetails,ExpansionPanelSummary,ExpansionPanelActions,Grid,
     TextField,Chip,Button,Divider,Select,MenuItem,Radio,RadioGroup, Avatar} from '@material-ui/core'
 import DateTimePicker from 'react-datetime-picker';
+import OwlCarousel from 'react-owl-carousel';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.css';
 import './header.scss';
+const options = {
+    items: 5,
+    nav: true,
+    rewind: false,
+    autoplay: false,
+    loop:true,
+    margin:60
+};
 export default class Banner extends React.Component{
     constructor(){
         super()
@@ -15,6 +26,7 @@ export default class Banner extends React.Component{
     }
     render(){
         return(
+            <>
         <div className="homepage-main container-fluid">
             <div className="row" style={{width:'80%',height:'500px',marginLeft:'10%',marginTop:'5%'}}>
                 <Grid style={{marginTop:'25px'}} container spacing={3}>
@@ -176,5 +188,17 @@ export default class Banner extends React.Component{
                 </Grid>
             </div>          
         </div>
+        <Grid style={{padding:'60px'}} container>
+                <OwlCarousel className="owl-theme" {...options}>
+                <div className="item homeCarousel5"><p className="textCar">Bikes</p></div>
+                <div className="item homeCarousel6"><p className="textCar">Speed Bikes</p></div>
+                <div className="item homeCarousel7"><p className="textCar">Scooter</p></div>
+                    <div className="item homeCarousel1"><p className="textCar">Small Cars</p></div>
+                    <div className="item homeCarousel2"><p className="textCar">Large Cars</p></div>
+                    <div className="item homeCarousel3"><p className="textCar">Premium Bus</p></div>
+                    <div className="item homeCarousel4"><p className="textCar">Normal Bus</p></div>
+                </OwlCarousel>
+            </Grid>
+        </>
         )}
 }
