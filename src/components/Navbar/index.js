@@ -44,7 +44,7 @@ export default class Navbar extends React.Component{
                     style={{marginLeft:'5px'}}
                     placeholder="Explore More..." 
                     className="search" />
-                    <Link to="/login"><Avatar style={{backgroundColor:'orange',float: 'right'}}>Y</Avatar></Link>
+                    <Link to="/user"><Avatar style={{backgroundColor:'orange',float: 'right'}}>Y</Avatar></Link>
                 </div>
                 </div>
             </div>

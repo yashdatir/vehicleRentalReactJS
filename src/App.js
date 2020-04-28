@@ -10,6 +10,7 @@ import User from './components/User/user';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import CREDITS from './pages/credits';
 import TEAM from './pages/team';
+import './index.css';
 export default class App extends React.Component{
   render(){
     return(

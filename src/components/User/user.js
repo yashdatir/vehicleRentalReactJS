@@ -1,6 +1,10 @@
 import React from 'react';
 import { Line, Pie } from "react-chartjs-2";
 import mapboxgl from 'mapbox-gl';
+import Account from '../User/Account';
+import Request from '../User/request';
+import BuySell from '../User/buysell';
+import Map from '../User/map';
 import Geolocation from 'react-native-geolocation-service';
 import {ExpansionPanel,ExpansionPanelDetails,ExpansionPanelSummary,ExpansionPanelActions,Grid,
   TextField,Chip,Button,Divider,Radio,RadioGroup, Avatar} from '@material-ui/core'
@@ -114,7 +118,8 @@ export default class User extends React.Component{
   constructor(){
     super()
     this.state={
-        date: new Date()
+        date: new Date(),
+        select: 5
     }
 }
 onChange=(date)=>{
@@ -213,18 +218,29 @@ createList=()=>{
                     <Pie data={pieData} options={options} />
                     <p align='center'>Economy Graph</p>
                 </div>
-                <div id="map" className="col-sm-3">
+                <div id="map" style={{height:'200px'}} className="col-sm-3">
                 </div>
                 <p align='center'>Current Location</p>
                 </div>
                 </ExpansionPanelDetails>
         </ExpansionPanel>
                 </Grid>
-
+                <Divider />
                 <Grid container>
-                  <Grid>
-                    Other User Details
-                  </Grid>
+                    <div style={{marginLeft:'30%',width:'100%',marginBottom:'5%'}}>
+                    <Button onClick={(e)=>this.setState({select:1})}>ACCOUNT SETTINGS</Button>
+                    <Button onClick={(e)=>this.setState({select:2})}>REQUEST CANCELLATION</Button>
+                    <Button onClick={(e)=>this.setState({select:3})}>BUY / SELL SECTION</Button>
+                    <Button onClick={(e)=>this.setState({select:4})}>OPEN MAP</Button>
+                    </div>
+                </Grid>
+                <Grid container>
+                  {
+                    this.state.select===1?<Account />
+                    :this.state.select===2?<Request />
+                    :this.state.select===3?<BuySell />
+                    :<Map />
+                  }
                 </Grid>
             </div>
         )
