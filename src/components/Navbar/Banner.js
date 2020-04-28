@@ -14,6 +14,43 @@ const options = {
     loop:true,
     margin:60
 };
+const Placelabel = [
+    {label:"Bengaluru, Karnataka"},
+              {label:"Nandi Hills, Karnataka"},
+              {label:"Dodaballapur, Chikballapur, Karnataka"},
+              {label:"Vadodara, Gujarat"},
+              {label:"Ahmedabad, Gujarat"},
+              {label:"Devbhumi Dwarka, Gujarat"},
+              {label:"Diu, Diu & Daman"},
+              {label:"Daman, Diu & Daman"},
+              {label:"Silvasa, Dadra and Nagar Haveli"},
+              {label:"Panipat, Haryana"},
+              {label:"Karnal, Haryana"},
+              {label:"Kurukshetra, Haryana"},
+              {label:"Chandigarh, Chandigarh"},
+              {label:"Shimla, Himachal Pradesh"},
+              {label:"Nainital, Uttrakhand"},
+              {label:"Haridwar, Uttrakhand"},
+              {label:"Rishikesh, Uttrakhand"},
+              {label:"Delhi"},
+              {label:"Mathura, Uttar Pradesh"},
+              {label:"Agra, Uttar Pradesh"},
+              {label:"Indore, Madhya Pradesh"},
+              {label:"Alirajpur, Madhya Pradesh"},
+              {label:"Ujjain, Madhya Pradesh"},
+              {label:"Kolhapur, Maharashtra"},
+              {label:"Mumbai, Maharashtra"},
+              {label:"Pune, Maharashtra"},
+              {label:"Nashik, Maharashtra"},
+              {label:"Ahmednagar, Maharashtra"},
+              {label:"Hyderabad, Telangana"},
+              {label:"Chennai, Tamil Nadu"},
+              {label:"Tirumala, Andhra Pradesh"},
+              {label:"Raipur, Chattisgarh"},
+              {label:"Goa"},
+              {label:"Andaman, Andaman and Nicobar"},
+              {label:"Havelock, Andaman and Nicobar"}
+  ]
 export default class Banner extends React.Component{
     constructor(){
         super()
@@ -24,6 +61,13 @@ export default class Banner extends React.Component{
     onChange=(date)=>{
         this.setState({date})
     }
+    createList=()=>{
+        let array=[]
+          Placelabel.map((text)=>
+           array.push( <Chip className="trip" icon={<Avatar><i className="far fa-check-circle"></i></Avatar>} label={text.label} />)
+          )
+          return array
+      }
     render(){
         return(
             <>
@@ -146,49 +190,14 @@ export default class Banner extends React.Component{
                 expandIcon={<i className="fa fa-chevron-down"></i>}
                 >My Trips:</ExpansionPanelSummary>
                 <ExpansionPanelDetails>
-                    <div className="history">
-                    <Chip className="trip" icon={<Avatar><i className="far fa-check-circle"></i></Avatar>} label="Bengaluru, Karnataka" />
-            <Chip className="trip" icon={<Avatar><i className="far fa-check-circle"></i></Avatar>} label="Nandi Hills, Karnataka" />
-            <Chip className="trip" icon={<Avatar><i className="far fa-check-circle"></i></Avatar>} label="Dodaballapur, Chikballapur, Karnataka" />
-            <Chip className="trip" icon={<Avatar><i className="far fa-check-circle"></i></Avatar>} label="Vadodara, Gujarat" />
-            <Chip className="trip" icon={<Avatar><i className="far fa-check-circle"></i></Avatar>} label="Ahmedabad, Gujarat" />
-            <Chip className="trip" icon={<Avatar><i className="far fa-check-circle"></i></Avatar>} label="Devbhumi Dwarka, Gujarat" />
-            <Chip className="trip" icon={<Avatar><i className="far fa-check-circle"></i></Avatar>} label="Diu, Diu & Daman" />
-            <Chip className="trip" icon={<Avatar><i className="far fa-check-circle"></i></Avatar>} label="Daman, Diu & Daman" />
-            <Chip className="trip" icon={<Avatar><i className="far fa-check-circle"></i></Avatar>} label="Silvasa, Dadra and Nagar Haveli" />
-            <Chip className="trip" icon={<Avatar><i className="far fa-check-circle"></i></Avatar>} label="Panipat, Haryana" />
-            <Chip className="trip" icon={<Avatar><i className="far fa-check-circle"></i></Avatar>} label="Karnal, Haryana" />
-            <Chip className="trip" icon={<Avatar><i className="far fa-check-circle"></i></Avatar>} label="Kurukshetra, Haryana" />
-            <Chip className="trip" icon={<Avatar><i className="far fa-check-circle"></i></Avatar>} label="Chandigarh, Chandigarh" />
-            <Chip className="trip" icon={<Avatar><i className="far fa-check-circle"></i></Avatar>} label="Shimla, Himachal Pradesh" />
-            <Chip className="trip" icon={<Avatar><i className="far fa-check-circle"></i></Avatar>} label="Nainital, Uttrakhand" />
-            <Chip className="trip" icon={<Avatar><i className="far fa-check-circle"></i></Avatar>} label="Haridwar, Uttrakhand" />
-            <Chip className="trip" icon={<Avatar><i className="far fa-check-circle"></i></Avatar>} label="Rishikesh, Uttrakhand" />
-            <Chip className="trip" icon={<Avatar><i className="far fa-check-circle"></i></Avatar>} label="Delhi" />
-            <Chip className="trip" icon={<Avatar><i className="far fa-check-circle"></i></Avatar>} label="Mathura, Uttar Pradesh" />
-            <Chip className="trip" icon={<Avatar><i className="far fa-check-circle"></i></Avatar>} label="Agra, Uttar Pradesh" />
-            <Chip className="trip" icon={<Avatar><i className="far fa-check-circle"></i></Avatar>} label="Indore, Madhya Pradesh" />
-            <Chip className="trip" icon={<Avatar><i className="far fa-check-circle"></i></Avatar>} label="Alirajpur, Madhya Pradesh" />
-            <Chip className="trip" icon={<Avatar><i className="far fa-check-circle"></i></Avatar>} label="Ujjain, Madhya Pradesh" />
-            <Chip className="trip" icon={<Avatar><i className="far fa-check-circle"></i></Avatar>} label="Kolhapur, Maharashtra" />
-            <Chip className="trip" icon={<Avatar><i className="far fa-check-circle"></i></Avatar>} label="Mumbai, Maharashtra" />
-            <Chip className="trip" icon={<Avatar><i className="far fa-check-circle"></i></Avatar>} label="Pune, Maharashtra" />
-            <Chip className="trip" icon={<Avatar><i className="far fa-check-circle"></i></Avatar>} label="Nashik, Maharashtra" />
-            <Chip className="trip" icon={<Avatar><i className="far fa-check-circle"></i></Avatar>} label="Ahmednagar, Maharashtra" />
-            <Chip className="trip" icon={<Avatar><i className="far fa-check-circle"></i></Avatar>} label="Hyderabad, Telangana" />
-            <Chip className="trip" icon={<Avatar><i className="far fa-check-circle"></i></Avatar>} label="Chennai, Tamil Nadu" />
-            <Chip className="trip" icon={<Avatar><i className="far fa-check-circle"></i></Avatar>} label="Tirumala, Andhra Pradesh" />
-            <Chip className="trip" icon={<Avatar><i className="far fa-check-circle"></i></Avatar>} label="Raipur, Chattisgarh" />
-            <Chip className="trip" icon={<Avatar><i className="far fa-check-circle"></i></Avatar>} label="Goa" />
-            <Chip className="trip" icon={<Avatar><i className="far fa-check-circle"></i></Avatar>} label="Andaman, Andaman and Nicobar" />
-            <Chip className="trip" icon={<Avatar><i className="far fa-check-circle"></i></Avatar>} label="Havelock, Andaman and Nicobar" />           
-            </div>
+                    <div className="history">{this.createList()}</div>
             </ExpansionPanelDetails>
         </ExpansionPanel>
                 </Grid>
             </div>          
         </div>
-        <Grid style={{padding:'60px'}} container>
+        <Grid style={{padding:'30px',marginTop:'-50px'}} container>
+            <p className="carouselHead">OUR DEALS</p>
                 <OwlCarousel className="owl-theme" {...options}>
                 <div className="item homeCarousel5"><p className="textCar">Bikes</p></div>
                 <div className="item homeCarousel6"><p className="textCar">Speed Bikes</p></div>
@@ -199,6 +208,12 @@ export default class Banner extends React.Component{
                     <div className="item homeCarousel4"><p className="textCar">Normal Bus</p></div>
                 </OwlCarousel>
             </Grid>
+            <div id="aboutus">
+            <Grid style={{padding:'30px',marginTop:'-50px'}} container>
+            <p className="carouselHead">ABOUT US</p>
+                
+            </Grid>
+            </div>
         </>
         )}
 }
