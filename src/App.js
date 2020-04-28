@@ -4,8 +4,12 @@ import Banner from './components/Navbar/Banner';
 import Footer from './components/Footer';
 import Estimate from './components/Estimation/estimate';
 import Login from './pages/login';
+import FAQ from './pages/faq';
+import WHY from './pages/why';
 import User from './components/User/user';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import CREDITS from './pages/credits';
+import TEAM from './pages/team';
 export default class App extends React.Component{
   render(){
     return(
@@ -32,6 +36,22 @@ export default class App extends React.Component{
 
           <Route path="/login">
           <Login />
+          </Route>
+
+          <Route path="/faq">
+          <FAQ />
+          </Route>
+
+          <Route path="/why">
+          <WHY />
+          </Route>
+
+          <Route path="/team">
+          <TEAM />
+          </Route>
+
+          <Route path="/tech">
+          <CREDITS />
           </Route>
 
           <Route path="/">

@@ -2,7 +2,9 @@ import React from 'react';
 import { Line, Pie } from "react-chartjs-2";
 import mapboxgl from 'mapbox-gl';
 import Geolocation from 'react-native-geolocation-service';
-import {Grid} from '@material-ui/core';
+import {ExpansionPanel,ExpansionPanelDetails,ExpansionPanelSummary,ExpansionPanelActions,Grid,
+  TextField,Chip,Button,Divider,Radio,RadioGroup, Avatar} from '@material-ui/core'
+import DateTimePicker from 'react-datetime-picker';
 const data = {
     labels: [
       "01/01/2019",
@@ -15,7 +17,7 @@ const data = {
     ],
     datasets: [
       {
-        label: "HSN",
+        label: "Ideal Time",
         fill: false,
         borderColor: "rgba(255, 0, 0, 0.3)",
         borderWidth: 1,
@@ -23,7 +25,7 @@ const data = {
         data: [65, 59, 80, 81, 56, 55, 40]
       },
       {
-        label: "CPX",
+        label: "Runtime",
         fill: false,
         borderColor: "rgba(0, 255, 0, 0.3)",
         borderWidth: 1,
@@ -31,7 +33,7 @@ const data = {
         data: [70, 32, 45, 65, 87, 92, 99]
       },
       {
-        label: "Total",
+        label: "Total Usage",
         fill: false,
         borderColor: "blue",
         borderWidth: 2,
@@ -58,9 +60,9 @@ const data = {
 
 const pieData = {
 	labels: [
-		'Red',
-		'Blue',
-		'Yellow'
+		'Fuel Usage',
+		'Fuel Idle use',
+		'Runtime'
 	],
 	datasets: [{
 		data: [300, 50, 100],
@@ -71,7 +73,60 @@ const pieData = {
 		]
 	}]
 };
+const Placelabel = [
+  {label:"Bengaluru, Karnataka"},
+            {label:"Nandi Hills, Karnataka"},
+            {label:"Dodaballapur, Chikballapur, Karnataka"},
+            {label:"Vadodara, Gujarat"},
+            {label:"Ahmedabad, Gujarat"},
+            {label:"Devbhumi Dwarka, Gujarat"},
+            {label:"Diu, Diu & Daman"},
+            {label:"Daman, Diu & Daman"},
+            {label:"Silvasa, Dadra and Nagar Haveli"},
+            {label:"Panipat, Haryana"},
+            {label:"Karnal, Haryana"},
+            {label:"Kurukshetra, Haryana"},
+            {label:"Chandigarh, Chandigarh"},
+            {label:"Shimla, Himachal Pradesh"},
+            {label:"Nainital, Uttrakhand"},
+            {label:"Haridwar, Uttrakhand"},
+            {label:"Rishikesh, Uttrakhand"},
+            {label:"Delhi"},
+            {label:"Mathura, Uttar Pradesh"},
+            {label:"Agra, Uttar Pradesh"},
+            {label:"Indore, Madhya Pradesh"},
+            {label:"Alirajpur, Madhya Pradesh"},
+            {label:"Ujjain, Madhya Pradesh"},
+            {label:"Kolhapur, Maharashtra"},
+            {label:"Mumbai, Maharashtra"},
+            {label:"Pune, Maharashtra"},
+            {label:"Nashik, Maharashtra"},
+            {label:"Ahmednagar, Maharashtra"},
+            {label:"Hyderabad, Telangana"},
+            {label:"Chennai, Tamil Nadu"},
+            {label:"Tirumala, Andhra Pradesh"},
+            {label:"Raipur, Chattisgarh"},
+            {label:"Goa"},
+            {label:"Andaman, Andaman and Nicobar"},
+            {label:"Havelock, Andaman and Nicobar"}
+]
 export default class User extends React.Component{
+  constructor(){
+    super()
+    this.state={
+        date: new Date()
+    }
+}
+onChange=(date)=>{
+    this.setState({date})
+}
+createList=()=>{
+  let array=[]
+    Placelabel.map((text)=>
+     array.push( <Chip className="trip" icon={<Avatar><i className="far fa-check-circle"></i></Avatar>} label={text.label} />)
+    )
+    return array
+}
     componentDidMount(){
             Geolocation.getCurrentPosition(
                 (position) => {
@@ -94,27 +149,78 @@ export default class User extends React.Component{
     render(){
         return(
             <div style={{marginTop:'75px'}} className="container">
+                <Grid style={{marginBottom:'30px'}} container>
+            <ExpansionPanel style={{width:'97%'}}>
+                <ExpansionPanelSummary
+                expandIcon={<i className="fa fa-chevron-down"></i>}
+                >My Past Trips:</ExpansionPanelSummary>
+                <ExpansionPanelDetails>
+                    <div className="history">
+                    {this.createList()}          
+                    </div>
+            </ExpansionPanelDetails>
+        </ExpansionPanel>
+                </Grid>
+
+                <Grid style={{marginBottom:'30px'}} container>
+            <ExpansionPanel style={{width:'97%'}}>
+                <ExpansionPanelSummary
+                expandIcon={<i className="fa fa-chevron-down"></i>}
+                >My Curation List:</ExpansionPanelSummary>
+                <ExpansionPanelDetails>
+                  <div style={{width:'30%'}} className="container">
+                        <div style={{marginLeft:'5px'}} className="row">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            <TextField style={{marginLeft:'5px'}} placeholder="From location" />
+                            <DateTimePicker onChange={this.onChange} value={this.state.date}/>
+                        
+                        </div>
+                        <div style={{marginLeft:'5px'}} className="row">
+                        <i class="fa fa-location-arrow" aria-hidden="true"></i>
+                        <TextField style={{marginLeft:'5px'}} placeholder="To location" />
+                        <DateTimePicker onChange={this.onChange} value={this.state.date}/>
+                        
+                        </div>
+                        <div className="row">
+                        <i class="fa fa-car" aria-hidden="true"></i><label style={{marginLeft:'20px'}}>Method of Travel</label>
+                            <RadioGroup style={{height:'30px',width:'70%'}}>
+                                2 wheelers<Radio value="2" id="radio" name="radio" />
+                                4 wheelers<Radio value="4" id="radio" name="radio" />
+                                other<Radio value="other" id="radio" name="radio" />
+                            </RadioGroup>
+                            </div>
+                        </div>
+                        </ExpansionPanelDetails>
+                        <Divider />
+                <ExpansionPanelActions>
+                <Button>ADD</Button>
+                </ExpansionPanelActions>
+        </ExpansionPanel>
+                </Grid>
+
+                <Grid style={{marginBottom:'100px'}} container>
+            <ExpansionPanel style={{width:'97%'}}>
+                <ExpansionPanelSummary
+                expandIcon={<i className="fa fa-chevron-down"></i>}
+                >My Status:</ExpansionPanelSummary>
+                <ExpansionPanelDetails>
                 <div className="row">
                 <div className="col-sm-3" style={{width:'400px',height:'200px'}}>
                     <Line data={data} options={options} />
+                    <p align='center'>Vehicle Graph</p>
                 </div>
                 <div className="col-sm-3" style={{width:'400px',height:'200px'}}>
                     <Pie data={pieData} options={options} />
+                    <p align='center'>Economy Graph</p>
                 </div>
                 <div id="map" className="col-sm-3">
                 </div>
+                <p align='center'>Current Location</p>
                 </div>
-                <div style={{textAlign:'center'}} className="row">
-                <div className="col-sm-4">
-                Vehicle Graph
-                </div>
-                <div className="col-sm-4">
-                Economy Graph
-                </div>
-                <div className="col-sm-4">
-                Current Location
-                </div>
-                </div>
+                </ExpansionPanelDetails>
+        </ExpansionPanel>
+                </Grid>
+
                 <Grid container>
                   <Grid>
                     Other User Details
