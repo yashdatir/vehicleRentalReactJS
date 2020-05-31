@@ -3,14 +3,16 @@ import Avatar from '@material-ui/core/Avatar';
 import City from './citySelect';
 import {Link} from 'react-router-dom';
 import './header.scss';
-import { TextField } from '@material-ui/core';
+import { TextField, Popper } from '@material-ui/core';
 export default class Navbar extends React.Component{
     constructor(){
         super()
         localStorage.getItem('city')?
         this.state={
             modal:false,
-            city:localStorage.getItem('city')
+            city:localStorage.getItem('city'),
+            pop:false,
+            anchor:null
         }
         :
         this.state={
@@ -28,6 +30,10 @@ export default class Navbar extends React.Component{
         this.setState({city:city,modal:false})
         localStorage.setItem('city',city)
     }
+    logout=()=>{
+        localStorage.removeItem('login');
+        window.location.reload()
+    }
     render(){
         return(
             <>
@@ -44,7 +50,24 @@ export default class Navbar extends React.Component{
                     style={{marginLeft:'5px'}}
                     placeholder="Explore More..." 
                     className="search" />
-                    <Link to="/user"><Avatar style={{backgroundColor:'orange',float: 'right'}}>Y</Avatar></Link>
+
+                    {
+                        localStorage.getItem('login')?
+                        <>
+                        <button style={{float: 'right', background:'transparent', border:'none'}} onClick={(e)=>this.setState({pop:!this.state.pop, anchor:e.currentTarget})}><Avatar style={{backgroundColor:'orange',float: 'right'}}>{JSON.parse(localStorage.getItem('login')).username.charAt(0).toUpperCase()}</Avatar></button>
+                        <Popper open={this.state.pop} anchorEl={this.state.anchor}>
+                            <div style={{border:'1px solid', background:'#ffffff', width:'100px', height:'50px'}}>
+                            <Link to="/user"><button style={{background:'transparent', border:'none'}}>Dashboard</button></Link>
+                            <button style={{background:'transparent', border:'none'}} onClick={this.logout}>Logout</button>
+                            </div>
+                        </Popper>
+                        </>
+                        :<Link to="/login"><label style={{float: 'right'}}>Login / Sign Up</label></Link>
+                        
+                    }
+                    
+
+
                 </div>
                 </div>
             </div>

@@ -1,6 +1,8 @@
 import React from 'react';
 import {TextField,Button} from '@material-ui/core';
 import Footer from '../components/Footer';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import image from '../main.jpg';
 import { login } from '../api/api';
 export default class Login extends React.Component{
@@ -19,12 +21,13 @@ export default class Login extends React.Component{
         :this.setState({login:true})
     }
     loginCreate=()=>{
-
-        login(this.state)
+        login(this.state)? toast.success('Success') : toast.error('Incorrect Username/Password')
+        window.history.back()
     }
     render(){
         return(
             <div>
+                <ToastContainer />
                 <div style={this.state.login?{textAlign:'center',backgroundSize:'contain',backgroundRepeat:'no-repeat',height:'450px',backgroundImage:`url(${image})`}:{display:'none'}} className="container">
                     <h3>Login</h3>
                     <div style={{marginTop:'50px'}}>
