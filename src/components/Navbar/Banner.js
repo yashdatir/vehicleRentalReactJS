@@ -6,6 +6,7 @@ import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import './header.scss';
+import { Placelabel } from  '../../constant';
 const options = {
     items: 5,
     nav: true,
@@ -14,43 +15,7 @@ const options = {
     loop:true,
     margin:60
 };
-const Placelabel = [
-    {label:"Bengaluru, Karnataka"},
-              {label:"Nandi Hills, Karnataka"},
-              {label:"Dodaballapur, Chikballapur, Karnataka"},
-              {label:"Vadodara, Gujarat"},
-              {label:"Ahmedabad, Gujarat"},
-              {label:"Devbhumi Dwarka, Gujarat"},
-              {label:"Diu, Diu & Daman"},
-              {label:"Daman, Diu & Daman"},
-              {label:"Silvasa, Dadra and Nagar Haveli"},
-              {label:"Panipat, Haryana"},
-              {label:"Karnal, Haryana"},
-              {label:"Kurukshetra, Haryana"},
-              {label:"Chandigarh, Chandigarh"},
-              {label:"Shimla, Himachal Pradesh"},
-              {label:"Nainital, Uttrakhand"},
-              {label:"Haridwar, Uttrakhand"},
-              {label:"Rishikesh, Uttrakhand"},
-              {label:"Delhi"},
-              {label:"Mathura, Uttar Pradesh"},
-              {label:"Agra, Uttar Pradesh"},
-              {label:"Indore, Madhya Pradesh"},
-              {label:"Alirajpur, Madhya Pradesh"},
-              {label:"Ujjain, Madhya Pradesh"},
-              {label:"Kolhapur, Maharashtra"},
-              {label:"Mumbai, Maharashtra"},
-              {label:"Pune, Maharashtra"},
-              {label:"Nashik, Maharashtra"},
-              {label:"Ahmednagar, Maharashtra"},
-              {label:"Hyderabad, Telangana"},
-              {label:"Chennai, Tamil Nadu"},
-              {label:"Tirumala, Andhra Pradesh"},
-              {label:"Raipur, Chattisgarh"},
-              {label:"Goa"},
-              {label:"Andaman, Andaman and Nicobar"},
-              {label:"Havelock, Andaman and Nicobar"}
-  ]
+
 export default class Banner extends React.Component{
     constructor(){
         super()
@@ -121,19 +86,19 @@ export default class Banner extends React.Component{
                     <ExpansionPanelDetails>
                         <div className="container">
                         <div style={{marginLeft:'5px'}} className="row">
-                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            <i className="fa fa-map-marker" aria-hidden="true"></i>
                             <TextField style={{marginLeft:'5px'}} placeholder="From location" />
                             <DateTimePicker onChange={this.onChange} value={this.state.date}/>
                         
                         </div>
                         <div style={{marginLeft:'5px'}} className="row">
-                        <i class="fa fa-location-arrow" aria-hidden="true"></i>
+                        <i className="fa fa-location-arrow" aria-hidden="true"></i>
                         <TextField style={{marginLeft:'5px'}} placeholder="To location" />
                         <DateTimePicker onChange={this.onChange} value={this.state.date}/>
                         
                         </div>
                         <div className="row">
-                        <i class="fa fa-car" aria-hidden="true"></i><label style={{marginLeft:'20px'}}>Method of Travel</label>
+                        <i className="fa fa-car" aria-hidden="true"></i><label style={{marginLeft:'20px'}}>Method of Travel</label>
                             <RadioGroup style={{height:'30px',width:'70%'}}>
                                 2 wheelers<Radio value="2" id="radio" name="radio" />
                                 4 wheelers<Radio value="4" id="radio" name="radio" />
@@ -157,17 +122,17 @@ export default class Banner extends React.Component{
                     <ExpansionPanelDetails>
                     <div className="container">
                         <div style={{marginLeft:'5px'}} className="row">
-                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            <i className="fa fa-map-marker" aria-hidden="true"></i>
                             <TextField style={{marginLeft:'5px'}} placeholder="From location" />
                         <DateTimePicker onChange={this.onChange} value={this.state.date}/>
                         </div>
                         <div style={{marginLeft:'5px'}} className="row">
-                        <i class="fa fa-location-arrow" aria-hidden="true"></i>
+                        <i className="fa fa-location-arrow" aria-hidden="true"></i>
                         <TextField style={{marginLeft:'5px'}} placeholder="To location" />
                         <DateTimePicker onChange={this.onChange} value={this.state.date}/>
                         </div>
                         <div className="row">
-                        <i class="fa fa-car" aria-hidden="true"></i><label style={{marginLeft:'20px'}}>Method of Travel</label>
+                        <i className="fa fa-car" aria-hidden="true"></i><label style={{marginLeft:'20px'}}>Method of Travel</label>
                             <RadioGroup style={{height:'30px',width:'70%'}}>
                                 2 wheelers<Radio value="2" id="radio" name="radio" />
                                 4 wheelers<Radio value="4" id="radio" name="radio" />
